@@ -17,5 +17,5 @@ def detect_intent_from_text(text, session_id, language_code='en'):
 
 
 def fetch_reply(query, session_id):
-    response = detect_intent_from_text("order firli", 12314)
+    response = detect_intent_from_text(query, session_id)
     return response.fulfillment_text
