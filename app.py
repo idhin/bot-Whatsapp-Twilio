@@ -18,11 +18,11 @@ def sms_reply():
     msg = request.form.get('Body')
     nmrHp = request.form.get('From')
 
-    reply = fetch_reply(reply)
+    reply = fetch_reply(msg, nmrHp)
 
     # Create reply
     resp = MessagingResponse()
-    resp.message()
+    resp.message(reply)
 
     return str(resp)
 
