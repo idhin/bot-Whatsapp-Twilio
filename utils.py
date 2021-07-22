@@ -1,6 +1,6 @@
 import dialogflow as dialogflow
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "hale-sequence-319816-c5c21beb823a.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "hale-sequence-319816-cc16318e5326.json"
 
 dialogflow_session_client = dialogflow.SessionsClient()
 PROJECT_ID = "hale-sequence-319816"
