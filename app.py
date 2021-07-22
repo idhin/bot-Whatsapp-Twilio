@@ -8,7 +8,7 @@ def hello():
     return "Hello, World!"
 
 
-@app.route("/sms", methods=['POST'])
+@app.route("/sms", methods=['GET'])
 def sms_reply():
     # """Respond to incoming calls with a simple text message."""
     # Fetch the message
