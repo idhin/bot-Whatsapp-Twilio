@@ -1,4 +1,4 @@
-import dialogflow_v2 as dialogflow
+import dialogflow as dialogflow
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "hale-sequence-319816-c5c21beb823a.json"
 
