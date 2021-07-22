@@ -1,9 +1,9 @@
 import dialogflow_v2 as dialogflow
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "whatsappbot1-sthj-9e9c2e486ed4.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "hale-sequence-319816-c5c21beb823a.json"
 
 dialogflow_session_client = dialogflow.SessionsClient()
-PROJECT_ID = "whatsappbot1-sthj"
+PROJECT_ID = "hale-sequence-319816"
 
 
 def detect_intent_from_text(text, session_id, language_code='en'):
