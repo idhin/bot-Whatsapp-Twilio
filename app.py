@@ -1,6 +1,8 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import csv
+import pandas as pd
+
 
 from utils import fetch_reply
 
@@ -12,28 +14,24 @@ def hello():
     return "Hello, World!"
 
 
-@app.route("/sms", methods=['POST'])
+@app.route("/sms", methods=['POST', 'GET'])
 def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
     phone_no = request.form.get('From')
 
-    # f = open("tests.txt", "w")
-    # f.write(phone_no + " pesannya : " + msg)
-    # f.close()
-
-    # header = ['nomor HP', 'pesan']
     data = [msg, phone_no]
 
-    with open('hasil.csv', 'a', encoding='UTF8', newline='\n') as f:
-        writer = csv.writer(f)
+    with open('output.xlsx', 'a', encoding='UTF8', newline='\n') as d:
+        df_marks = pd.DataFrame({'Pesan': [msg],
+                                 'No HP': [phone_no], })
 
-        # write the header
-        # writer.writerow(header)
-
-        # write the data
-        writer.writerow(data)
+        writer = pd.ExcelWriter('output.xlsx')
+        # write dataframe to excel
+        df_marks.to_excel(writer)
+        # save the excel
+        writer.save()
 
     reply = fetch_reply(msg, phone_no)
 
